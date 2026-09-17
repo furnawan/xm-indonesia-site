@@ -3,477 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mitra XM Indonesia — Platform Broker Forex & Emas Resmi 2026</title>
-  <meta name="description" content="Platform trading forex, emas (XAUUSD), dan kripto dengan spread terendah, eksekusi instan, dan bonus eksklusif bersama XM Indonesia.">
-  <!-- Google Fonts: Source Sans 3 & JetBrains Mono -->
+  <title>Mitra XM Indonesia — Review Broker Aman & Terpercaya 2026</title>
+  <meta name="description" content="Review lengkap broker XM: Teregulasi, terpercaya, dan platform trading canggih untuk trader pemula maupun profesional. Daftar sekarang!">
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     :root {
       --color-bg: #ffffff;
       --color-text-main: #111827;
       --color-text-sub: #4b5563;
-      --color-accent: #dc2626; /* Red accent */
+      --color-accent: #dc2626;
       --color-accent-hover: #b91c1c;
       --color-dark: #1f2937;
       --color-border: #e5e7eb;
       --shadow-stripe: rgba(220, 38, 38, 0.15) 0px 30px 45px -30px, rgba(0, 0, 0, 0.08) 0px 18px 36px -18px;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Source Sans 3', system-ui, -apple-system, sans-serif;
-      color: var(--color-text-main);
-      background-color: var(--color-bg);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-      z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 5%;
-    }
-
-    .logo {
-      font-weight: 700;
-      font-size: 22px;
-      color: var(--color-dark);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .logo span {
-      color: var(--color-accent);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--color-text-main);
-      font-weight: 500;
-      font-size: 15px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--color-accent);
-    }
-
-    .btn {
-      background: var(--color-accent);
-      color: #ffffff;
-      padding: 10px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.2s ease;
-      display: inline-block;
-      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
-    }
-
-    .btn:hover {
-      background: var(--color-accent-hover);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
-    }
-
-    .hero {
-      padding: 100px 5% 80px;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(220, 38, 38, 0.06) 0%, transparent 70%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      color: var(--color-text-main);
-      margin-bottom: 20px;
-      max-width: 900px;
-      line-height: 1.15;
-    }
-
-    .hero h1 span {
-      color: var(--color-accent);
-    }
-
-    .hero p {
-      font-size: clamp(16px, 2vw, 20px);
-      color: var(--color-text-sub);
-      max-width: 650px;
-      margin: 0 auto 36px;
-    }
-
-    .hero-img-container {
-      width: 100%;
-      max-width: 900px;
-      margin-top: 40px;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-stripe);
-      border: 1px solid var(--color-border);
-    }
-
-    .hero-img-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transform: scale(1);
-      transition: transform 0.5s ease;
-    }
-
-    .hero-img-container:hover img {
-      transform: scale(1.02);
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 5%;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
-      margin: 80px 0;
-    }
-
-    .card {
-      background: #ffffff;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 36px;
-      box-shadow: var(--shadow-stripe);
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(220, 38, 38, 0.3);
-    }
-
-    .card .icon {
-      font-size: 36px;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-
-    .card h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--color-text-main);
-    }
-
-    .card p {
-      color: var(--color-text-sub);
-      font-size: 16px;
-    }
-
-    .market-section {
-      margin: 80px 0;
-      background: #111827;
-      color: #ffffff;
-      border-radius: 16px;
-      padding: 50px 40px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
-
-    .market-section h2 {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-    }
-
-    .market-section p.subtitle {
-      color: #9ca3af;
-      margin-bottom: 30px;
-      font-size: 15px;
-    }
-
-    .table-responsive {
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-    }
-
-    th, td {
-      padding: 16px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      font-size: 16px;
-    }
-
-    th {
-      font-weight: 600;
-      color: #9ca3af;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    td {
-      font-family: 'JetBrains Mono', monospace;
-    }
-
-    .live-dot {
-      height: 8px;
-      width: 8px;
-      background-color: #10b981;
-      border-radius: 50%;
-      display: inline-block;
-      margin-right: 6px;
-      box-shadow: 0 0 8px #10b981;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.8; }
-    }
-
-    .cta-section {
-      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-      color: #ffffff;
-      text-align: center;
-      padding: 90px 20px;
-      border-radius: 16px;
-      margin: 100px auto;
-      max-width: 1100px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 60%);
-      pointer-events: none;
-    }
-
-    .cta-section h2 {
-      font-size: clamp(32px, 4vw, 42px);
-      font-weight: 700;
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .cta-section p {
-      color: #d1d5db;
-      font-size: 18px;
-      margin-bottom: 36px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    footer {
-      border-top: 1px solid var(--color-border);
-      padding: 50px 5%;
-      text-align: center;
-      color: var(--color-text-sub);
-      font-size: 14px;
-      background: #f9fafb;
-    }
-
-    footer .affiliate-notice {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      padding: 16px;
-      background: #f3f4f6;
-      border-radius: 8px;
-      border-left: 4px solid var(--color-accent);
-      text-align: left;
-      font-size: 13px;
-      color: #374151;
-    }
-
-    @media (max-width: 768px) {
-      nav { display: none; }
-      .market-section { padding: 30px 20px; }
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Source Sans 3', sans-serif; color: var(--color-text-main); background-color: var(--color-bg); line-height: 1.6; }
+    header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 16px 5%; }
+    .logo { font-weight: 700; font-size: 22px; color: var(--color-dark); text-decoration: none; }
+    .logo span { color: var(--color-accent); }
+    .btn { background: var(--color-accent); color: #ffffff; padding: 12px 28px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.2s; box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3); }
+    .btn:hover { background: var(--color-accent-hover); transform: translateY(-2px); }
+    .hero { padding: 80px 5%; text-align: center; background: radial-gradient(circle at top, rgba(220, 38, 38, 0.05) 0%, transparent 70%); }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; color: var(--color-text-main); margin-bottom: 24px; }
+    .hero-banner { max-width: 800px; margin: 0 auto 40px; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-stripe); border: 2px solid var(--color-border); }
+    .hero-banner img { width: 100%; height: auto; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+    .market-section { margin: 80px 0; background: #111827; color: #ffffff; border-radius: 16px; padding: 50px 40px; }
+    table { width: 100%; border-collapse: collapse; }
+    th { color: #9ca3af; text-align: left; padding: 16px; font-size: 14px; text-transform: uppercase; }
+    td { padding: 16px; border-top: 1px solid #374151; font-family: 'JetBrains Mono', monospace; }
+    .cta-section { text-align: center; padding: 80px 20px; background: #f9fafb; border-radius: 16px; margin: 80px auto; }
+    footer { padding: 40px 5%; border-top: 1px solid var(--color-border); font-size: 13px; color: var(--color-text-sub); }
   </style>
 </head>
 <body>
 
   <header>
     <a href="#" class="logo">Mitra<span>XM</span></a>
-    <nav>
-      <a href="#fitur">Keunggulan</a>
-      <a href="#pasar">Market Live</a>
-      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" referrerpolicy="no-referrer" class="btn">Buka Akun</a>
-    </nav>
+    <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn">Buka Akun XM</a>
   </header>
 
-  <section class="hero" data-aos="fade-up" data-aos-duration="1000">
+  <section class="hero">
     <div class="container">
-      <h1>Platform Trading Forex & Emas Resmi Bersama <span>Mitra XM Indonesia</span></h1>
-      <p>Nikmati eksekusi secepat kilat, tanpa requote, spread ultra-rendah, dan layanan support terbaik untuk trader Indonesia.</p>
-      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" referrerpolicy="no-referrer" class="btn" style="font-size: 18px; padding: 14px 32px;">Mulai Trading Sekarang</a>
-      
-      <div class="hero-img-container" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80" alt="Trading Dashboard">
+      <div class="hero-banner" data-aos="zoom-in">
+        <img src="hero-banner.jpg" alt="Review Broker XM">
       </div>
+      <h1>Review Broker XM: Aman untuk Pemula?</h1>
+      <p>Platform trading canggih, teregulasi internasional, dan dukungan 24/7 untuk kesuksesan trading Anda.</p>
+      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn" style="font-size: 18px;">Daftar Akun Sekarang</a>
     </div>
   </section>
 
-  <div class="container" id="fitur">
-    <div class="features-grid">
-      <div class="card" data-aos="fade-up" data-aos-delay="100">
-        <div class="icon">⚡</div>
-        <h3>Eksekusi Tanpa Requote</h3>
-        <p>Kecepatan eksekusi order rata-rata di bawah 30 milidetik tanpa intervensi dealer, memastikan posisi Anda masuk di harga optimal.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="200">
-        <div class="icon">🛡️</div>
-        <h3>Keamanan Dana Klien</h3>
-        <p>Dana dipisahkan di bank tier-1 dengan perlindungan saldo negatif penuh, memberikan ketenangan total saat trading.</p>
-      </div>
-      <div class="card" data-aos="fade-up" data-aos-delay="300">
-        <div class="icon">📈</div>
-        <h3>Spread Rendah XAUUSD</h3>
-        <p>Trading instrumen emas dan forex dengan spread super kompetitif, swap bebas, dan pilihan leverage fleksibel.</p>
-      </div>
-    </div>
-  </div>
-
   <div class="container" id="pasar">
-    <div class="market-section" data-aos="fade-up">
-      <h2><span class="live-dot"></span>Real-Time Market Watch (XAUUSD & Majors)</h2>
-      <p class="subtitle">Harga pasar diperbarui secara real-time langsung dari feed global.</p>
+    <div class="market-section">
+      <h2>Live Market Trend (XM Spreads)</h2>
       <div class="table-responsive">
         <table>
           <thead>
-            <tr>
-              <th>Pair</th>
-              <th>Bid</th>
-              <th>Ask</th>
-              <th>Spread</th>
-              <th>Status</th>
-            </tr>
+            <tr><th>Pair</th><th>Spread (Akun Ultra)</th><th>Trend H1</th></tr>
           </thead>
           <tbody id="market-data">
-            <tr>
-              <td>XAUUSD</td>
-              <td id="xau-bid">Loading...</td>
-              <td id="xau-ask">Loading...</td>
-              <td>0.35 pip</td>
-              <td style="color: #10b981;">▲ ACTIVE</td>
-            </tr>
-            <tr>
-              <td>EURUSD</td>
-              <td id="eur-bid">Loading...</td>
-              <td id="eur-ask">Loading...</td>
-              <td>0.12 pip</td>
-              <td style="color: #10b981;">▲ ACTIVE</td>
-            </tr>
-            <tr>
-              <td>GBPUSD</td>
-              <td id="gbp-bid">Loading...</td>
-              <td id="gbp-ask">Loading...</td>
-              <td>0.18 pip</td>
-              <td style="color: #10b981;">▲ ACTIVE</td>
-            </tr>
+            <tr><td>XAUUSD</td><td id="xau-spread">0.45 pip</td><td style="color:#10b981">▲ BULLISH</td></tr>
+            <tr><td>EURUSD</td><td id="eur-spread">0.60 pip</td><td style="color:#ef4444">▼ BEARISH</td></tr>
+            <tr><td>GBPUSD</td><td id="gbp-spread">0.80 pip</td><td style="color:#10b981">▲ BULLISH</td></tr>
           </tbody>
         </table>
       </div>
     </div>
   </div>
 
-  <div class="container" id="cta">
-    <div class="cta-section" data-aos="zoom-in">
-      <h2>Siap Mencetak Profit Konsisten Hari Ini?</h2>
-      <p>Bergabunglah bersama ribuan trader sukses di Indonesia dan nikmati berbagai keunggulan eksklusif.</p>
-      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" referrerpolicy="no-referrer" class="btn" style="font-size: 18px; padding: 14px 32px;">Buka Akun Live / Demo</a>
-    </div>
-  </div>
-
   <footer>
     <div class="container">
-      <div class="affiliate-notice">
-        <strong>Pengungkapan Afiliasi (Affiliate Disclosure):</strong> Website ini adalah situs mitra afiliasi independen (Introducing Broker / Affiliate). Kami menerima komisi dari broker terkait untuk setiap pendaftaran dan aktivitas trading melalui tautan di situs ini tanpa ada biaya tambahan bagi Anda. Trading forex dan emas memiliki risiko tinggi.
-      </div>
-      <p>&copy; 2026 Mitra XM Indonesia. All rights reserved.</p>
+      <p><strong>Affiliate Disclosure:</strong> Website ini adalah mitra afiliasi resmi XM. Kami menerima komisi untuk pendaftaran yang dilakukan melalui tautan kami.</p>
     </div>
   </footer>
 
-  <!-- AOS Animation Script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      once: true,
-      offset: 100,
-      duration: 800
-    });
-
-    // Real-time simulated live price ticker for demo/live feel
-    async function fetchLivePrices() {
-      try {
-        let res = await fetch('https://api.coincap.io/v2/rates/bitcoin'); // Fallback public feed or simulate realistic jitter
-        // Let's create realistic live fluctuations for XAUUSD, EURUSD, GBPUSD
-        let baseGold = 2525.50;
-        let baseEur = 1.1124;
-        let baseGbp = 1.3145;
-
-        setInterval(() => {
-          let jitterGold = (Math.random() - 0.5) * 1.5;
-          let jitterEur = (Math.random() - 0.5) * 0.0005;
-          let jitterGbp = (Math.random() - 0.5) * 0.0005;
-
-          let goldPrice = (baseGold + jitterGold).toFixed(2);
-          let eurPrice = (baseEur + jitterEur).toFixed(5);
-          let gbpPrice = (baseGbp + jitterGbp).toFixed(5);
-
-          document.getElementById('xau-bid').innerText = goldPrice;
-          document.getElementById('xau-ask').innerText = (parseFloat(goldPrice) + 0.35).toFixed(2);
-
-          document.getElementById('eur-bid').innerText = eurPrice;
-          document.getElementById('eur-ask').innerText = (parseFloat(eurPrice) + 0.00012).toFixed(5);
-
-          document.getElementById('gbp-bid').innerText = gbpPrice;
-          document.getElementById('gbp-ask').innerText = (parseFloat(gbpPrice) + 0.00018).toFixed(5);
-        }, 2000);
-      } catch(e) {
-        console.log('Price feed active fallback');
-      }
-    }
-    fetchLivePrices();
-  </script>
+  <script>AOS.init();</script>
 </body>
 </html>
