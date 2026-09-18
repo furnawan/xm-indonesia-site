@@ -412,7 +412,12 @@
       .footer-grid { grid-template-columns: 1fr; gap: 30px; }
       .nav-links { display: none; }
     }
-  </style>
+  
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    </style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
@@ -437,9 +442,9 @@
     <div class="hero-content">
       <h1>Review Broker <span>XM Indonesia</span>: Aman, Teregulasi & Spread Ultra Rendah</h1>
       <p>Platform trading forex dan emas (XAUUSD) terkemuka di Indonesia. Nikmati eksekusi tanpa requote, perlindungan saldo negatif, serta layanan profesional 24/7.</p>
-      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn" style="padding: 16px 36px; font-size: 16px;">
-          Daftar Akun Resmi XM <i data-lucide="external-link" style="width:18px;height:18px;"></i>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+        <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn" style="padding: 18px 40px; font-size: 18px; background: linear-gradient(135deg, #ff2d2d, #dc2626); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.6); animation: bounce 2s infinite;">
+          🚀 Buka Akun XM Sekarang <i data-lucide="arrow-right" style="width:20px;height:20px;"></i>
         </a>
       </div>
       <div class="hero-badges">
@@ -459,7 +464,7 @@
       <h2>Mengapa Trader Memilih XM Indonesia?</h2>
       <p>Keunggulan ekosistem trading XM yang dirancang khusus untuk memaksimalkan potensi profit Anda dengan keamanan maksimal.</p>
     </div>
-    <div class="grid-4">
+    <div class="grid-3">
       <div class="feature-card">
         <div class="feature-icon"><i data-lucide="zap"></i></div>
         <h3>Eksekusi Tanpa Requote</h3>
@@ -478,7 +483,17 @@
       <div class="feature-card">
         <div class="feature-icon"><i data-lucide="gift"></i></div>
         <h3>Bonus & Promosi Menarik</h3>
-        <p>Nikmati berbagai penawaran bonus deposit eksklusif dan programLOYALTY reward untuk meningkatkan margin trading Anda.</p>
+        <p>Nikmati berbagai penawaran bonus deposit eksklusif dan program loyalitas untuk meningkatkan margin trading Anda.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="headphones"></i></div>
+        <h3>Support Lokal 24/5</h3>
+        <p>Layanan pelanggan multibahasa termasuk staf lokal Indonesia siap membantu kendala deposit, withdraw, dan teknis.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="smartphone"></i></div>
+        <h3>Platform MetaTrader 4 & 5</h3>
+        <p>Gunakan platform trading paling populer di dunia dengan akses multi-device di desktop, tablet, maupun smartphone.</p>
       </div>
     </div>
   </section>
@@ -616,8 +631,8 @@
       document.getElementById('xau-ask').innerText = (baseGold + 0.45).toFixed(2);
 
       // For EURUSD and GBPUSD, use realistic current rates (based on typical market)
-      let eurRate = 0.91;
-      let gbpRate = 0.79;
+      let eurRate = 1.1125 + (Math.random() - 0.5) * 0.0010;
+      let gbpRate = 1.3145 + (Math.random() - 0.5) * 0.0010;
       document.getElementById('eur-bid').innerText = eurRate.toFixed(5);
       document.getElementById('eur-ask').innerText = (parseFloat(eurRate) + 0.00060).toFixed(5);
       document.getElementById('gbp-bid').innerText = gbpRate.toFixed(5);
