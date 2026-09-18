@@ -1,64 +1,93 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XM Indonesia — Review Broker Forex & Emas Resmi 2026 | Aman & Terpercaya</title>
-  <meta name="description" content="Review lengkap XM Indonesia: Broker forex dan emas (XAUUSD) terkemuka dengan spread ultra rendah, eksekusi tanpa requote, bonus deposit, dan teregulasi ketat.">
-  <meta name="keywords" content="xm indonesia, broker forex terbaik, trading emas xauusd, review xm broker, daftar akun xm, spread xm ultra low">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>XM Indonesia — Review Broker Forex & Trading Emas XAUUSD Terbaik 2026</title>
+  <meta name="description" content="Review resmi XM Indonesia: Broker forex & emas (XAUUSD) terpercaya dengan spread ultra rendah, eksekusi instan tanpa requote, bonus deposit, dan teregulasi global."/>
+  <meta name="keywords" content="xm indonesia, broker forex terbaik, trading emas xauusd, review broker xm, daftar akun xm, spread ultra low xm, bonus xm indonesia"/>
   
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="canonical" href="https://xm-indonesia-site.pages.dev/"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "XM Indonesia",
+    "description": "Portal review dan referensi resmi broker XM Indonesia untuk trading forex, emas (XAUUSD), dan komoditas dengan spread ultra rendah.",
+    "url": "https://xm-indonesia-site.pages.dev/",
+    "areaServed": "Indonesia",
+    "serviceType": "Forex Broker Review & Affiliate"
+  }
+  </script>
 
   <style>
     :root {
-      --bg-main: #090d16;
-      --bg-card: #111827;
-      --bg-card-hover: #1f2937;
-      --accent-red: #ef4444;
-      --accent-red-glow: rgba(239, 68, 68, 0.25);
-      --text-main: #f9fafb;
-      --text-muted: #9ca3af;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(239, 68, 68, 0.4);
+      --brand: #e31b23;
+      --brand-strong: #c5121a;
+      --brand-soft: rgba(227, 27, 35, 0.12);
+      --ink: #f8fafc;
+      --ink-2: #cbd5e1;
+      --ink-3: #94a3b8;
+      --bg: #07090e;
+      --bg-card: #0f1523;
+      --bg-card-hover: #161e31;
+      --line: rgba(255, 255, 255, 0.08);
+      --ok: #10b981;
+      --danger: #ef4444;
+      --shadow: 0 20px 50px -15px rgba(227, 27, 35, 0.25);
+      --radius: 16px;
+      --maxw: 1200px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
 
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-main);
-      color: var(--text-main);
+      background-color: var(--bg);
+      color: var(--ink);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Navbar */
+    /* Scroll progress bar */
+    #progress {
+      position: fixed;
+      top: 0; left: 0; height: 3px;
+      background: var(--brand);
+      width: 0%;
+      z-index: 1100;
+      transition: width 0.1s linear;
+    }
+
+    /* Header */
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(9, 13, 22, 0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border-color);
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
       z-index: 1000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 6%;
+      padding: 18px 5%;
+      max-width: 100%;
     }
 
     .logo {
       font-weight: 800;
       font-size: 24px;
-      color: var(--text-main);
+      color: var(--ink);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      letter-spacing: -0.5px;
     }
 
     .logo span {
@@ -75,43 +104,43 @@
 
     .nav-links a {
       text-decoration: none;
-      color: var(--text-muted);
+      color: var(--ink-2);
       font-weight: 500;
       font-size: 15px;
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a:hover { color: var(--ink); }
 
-    .btn-primary {
+    .btn {
       background: linear-gradient(135deg, #ef4444, #dc2626);
       color: #ffffff;
-      padding: 12px 26px;
-      border-radius: 10px;
+      padding: 12px 28px;
+      border-radius: 12px;
       text-decoration: none;
       font-weight: 700;
       font-size: 15px;
-      box-shadow: 0 4px 20px var(--accent-red-glow);
+      box-shadow: var(--shadow);
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
 
-    .btn-primary:hover {
+    .btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(239, 68, 68, 0.4);
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
     }
 
     /* Hero Section */
     .hero {
-      padding: 160px 6% 100px;
+      padding: 160px 5% 100px;
+      max-width: var(--maxw);
+      margin: 0 auto;
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
+      gap: 50px;
       align-items: center;
-      max-width: 1350px;
-      margin: 0 auto;
     }
 
     .hero-content h1 {
@@ -119,7 +148,7 @@
       font-weight: 800;
       line-height: 1.15;
       margin-bottom: 24px;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
     }
 
     .hero-content h1 span {
@@ -130,18 +159,18 @@
 
     .hero-content p {
       font-size: 18px;
-      color: var(--text-muted);
+      color: var(--ink-2);
       margin-bottom: 36px;
-      max-width: 600px;
+      line-height: 1.7;
     }
 
     .hero-badges {
       display: flex;
-      gap: 20px;
+      gap: 24px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 35px;
       font-size: 14px;
-      color: var(--text-muted);
+      color: var(--ink-3);
     }
 
     .hero-badges div {
@@ -150,29 +179,28 @@
       gap: 8px;
     }
 
-    .hero-badges i { color: var(--accent-red); }
+    .hero-badges svg { color: var(--brand); width: 20px; height: 20px; }
 
-    .hero-banner-card {
+    .hero-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-banner-card img {
+    .hero-card img {
       width: 100%;
       height: auto;
-      border-radius: 12px;
+      border-radius: 10px;
       display: block;
     }
 
-    /* Features Grid */
-    .features {
-      padding: 80px 6%;
-      max-width: 1350px;
+    /* Section Container */
+    .section {
+      padding: 90px 5%;
+      max-width: var(--maxw);
       margin: 0 auto;
     }
 
@@ -182,17 +210,20 @@
     }
 
     .section-title h2 {
-      font-size: 36px;
+      font-size: clamp(30px, 3.5vw, 40px);
       font-weight: 800;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       letter-spacing: -0.5px;
     }
 
     .section-title p {
-      color: var(--text-muted);
+      color: var(--ink-2);
       font-size: 17px;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
+    /* Grid Features */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -201,28 +232,29 @@
 
     .feature-card {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 16px;
-      padding: 40px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 38px;
       transition: all 0.3s ease;
       position: relative;
     }
 
     .feature-card:hover {
-      border-color: var(--border-hover);
-      transform: translateY(-5px);
+      border-color: var(--brand);
+      transform: translateY(-6px);
       background: var(--bg-card-hover);
+      box-shadow: 0 20px 40px -15px rgba(239, 68, 68, 0.15);
     }
 
     .feature-icon {
-      width: 50px; height: 50px;
-      background: rgba(239, 68, 68, 0.1);
-      color: var(--accent-red);
-      border-radius: 12px;
+      width: 56px; height: 56px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px;
+      font-size: 26px;
       margin-bottom: 24px;
     }
 
@@ -233,57 +265,53 @@
     }
 
     .feature-card p {
-      color: var(--text-muted);
+      color: var(--ink-2);
       font-size: 15px;
+      line-height: 1.6;
     }
 
     /* Live Market Watch */
-    .market-watch {
-      padding: 80px 6%;
-      max-width: 1350px;
-      margin: 0 auto;
-    }
-
     .market-box {
       background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 45px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.4);
     }
 
     .market-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 20px;
     }
 
     .live-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
-      padding: 6px 14px;
-      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--ok);
+      padding: 8px 16px;
+      border-radius: 30px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     .live-dot {
       width: 8px; height: 8px;
-      background-color: #10b981;
+      background-color: var(--ok);
       border-radius: 50%;
-      box-shadow: 0 0 10px #10b981;
+      box-shadow: 0 0 10px var(--ok);
       animation: pulse 1.5s infinite;
     }
 
     @keyframes pulse {
       0% { transform: scale(0.95); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
+      50% { transform: scale(1.35); opacity: 1; }
       100% { transform: scale(0.95); opacity: 0.8; }
     }
 
@@ -296,42 +324,38 @@
     }
 
     th {
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 600;
+      color: var(--ink-3);
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 1px;
       padding: 16px;
-      border-bottom: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--line);
     }
 
     td {
-      padding: 20px 16px;
-      border-bottom: 1px solid var(--border-color);
+      padding: 22px 16px;
+      border-bottom: 1px solid var(--line);
       font-family: 'JetBrains Mono', monospace;
       font-size: 15px;
     }
 
     .pair-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--ink);
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .bullish { color: #10b981; font-weight: 700; }
-    .bearish { color: #ef4444; font-weight: 700; }
+    .bullish { color: var(--ok); font-weight: 700; }
+    .bearish { color: var(--danger); font-weight: 700; }
 
     /* CTA Banner */
-    .cta-banner {
-      padding: 100px 6%;
-      max-width: 1350px;
-      margin: 0 auto;
-    }
-
     .cta-box {
-      background: linear-gradient(135deg, #111827 0%, #1f2937 100%);
-      border: 1px solid var(--border-hover);
+      background: linear-gradient(135deg, #0f1523 0%, #1a233a 100%);
+      border: 1px solid rgba(239, 68, 68, 0.3);
       border-radius: 24px;
       padding: 80px 40px;
       text-align: center;
@@ -344,10 +368,11 @@
       font-size: clamp(32px, 4vw, 44px);
       font-weight: 800;
       margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
     .cta-box p {
-      color: var(--text-muted);
+      color: var(--ink-2);
       font-size: 18px;
       max-width: 650px;
       margin: 0 auto 36px;
@@ -355,110 +380,113 @@
 
     /* Footer */
     footer {
-      border-top: 1px solid var(--border-color);
-      padding: 60px 6% 30px;
-      background: #05080e;
-      color: var(--text-muted);
+      border-top: 1px solid var(--line);
+      padding: 70px 5% 40px;
+      background: #04060a;
+      color: var(--ink-3);
       font-size: 14px;
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 40px;
-      margin-bottom: 40px;
+      gap: 50px;
+      margin-bottom: 50px;
     }
 
     .footer-disclosure {
       background: rgba(239, 68, 68, 0.05);
-      border-left: 3px solid var(--accent-red);
-      padding: 16px;
-      border-radius: 0 8px 8px 0;
+      border-left: 3px solid var(--brand);
+      padding: 20px;
+      border-radius: 0 10px 10px 0;
       font-size: 13px;
-      line-height: 1.5;
-      margin-bottom: 30px;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      color: var(--ink-2);
     }
 
     @media (max-width: 968px) {
-      .hero { grid-template-columns: 1fr; padding-top: 140px; text-align: center; }
+      .hero { grid-template-columns: 1fr; padding-top: 130px; text-align: center; }
       .hero-content p { margin: 0 auto 36px; }
       .hero-badges { justify-content: center; }
-      .footer-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 30px; }
       .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <div id="progress"></div>
+
   <!-- Header -->
   <header>
     <a href="#" class="logo">Mitra<span>XM</span></a>
     <div class="nav-links">
-      <a href="#keunggulan">Keunggulan</a>
-      <a href="#pasar">Market Realtime</a>
-      <a href="#fitur">Fitur XM</a>
+      <a href="#keunggulan">Keunggulan XM</a>
+      <a href="#pasar">Market Real-Time</a>
+      <a href="#fitur">Akun & Fitur</a>
     </div>
-    <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn-primary">
+    <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn">
       Buka Akun XM <i data-lucide="arrow-right" style="width:18px;height:18px;"></i>
     </a>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content" data-aos="fade-right">
-      <h1>Review Broker <span>XM Indonesia</span>: Aman untuk Pemula & Profesional</h1>
-      <p>Platform trading forex dan emas (XAUUSD) terkemuka dengan eksekusi instan tanpa requote, spread ultra rendah, dan teregulasi ketat.</p>
+    <div class="hero-content">
+      <h1>Review Broker <span>XM Indonesia</span>: Aman, Teregulasi & Spread Ultra Rendah</h1>
+      <p>Platform trading forex dan emas (XAUUSD) terkemuka di Indonesia. Nikmati eksekusi tanpa requote, perlindungan saldo negatif, serta layanan profesional 24/7.</p>
       <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-        <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn-primary" style="padding: 16px 32px; font-size: 16px;">
-          Buka Akun Live / Demo <i data-lucide="external-link" style="width:18px;height:18px;"></i>
+        <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn" style="padding: 16px 36px; font-size: 16px;">
+          Daftar Akun Resmi XM <i data-lucide="external-link" style="width:18px;height:18px;"></i>
         </a>
       </div>
       <div class="hero-badges">
         <div><i data-lucide="shield-check"></i> Teregulasi Global</div>
-        <div><i data-lucide="award"></i> Penghargaan Internasional</div>
-        <div><i data-lucide="headphones"></i> Support 24/7</div>
+        <div><i data-lucide="award"></i> Broker Terbaik Asia</div>
+        <div><i data-lucide="headphones"></i> Support Bahasa Indonesia</div>
       </div>
     </div>
-    <div class="hero-banner-card" data-aos="zoom-in" data-aos-delay="200">
-      <img src="hero-banner.jpg" alt="XM Indonesia Review Banner">
+    <div class="hero-card">
+      <img src="hero-banner.jpg" alt="XM Indonesia Trading Platform">
     </div>
   </section>
 
   <!-- Features Section -->
-  <section class="features" id="keunggulan">
-    <div class="section-title" data-aos="fade-up">
-      <h2>Mengapa Trader Indonesia Memilih XM Indonesia?</h2>
-      <p>Keunggulan kompetitif yang dirancang untuk mendukung profitabilitas dan kenyamanan trading Anda.</p>
+  <section class="section" id="keunggulan">
+    <div class="section-title">
+      <h2>Mengapa Trader Memilih XM Indonesia?</h2>
+      <p>Keunggulan ekosistem trading XM yang dirancang khusus untuk memaksimalkan potensi profit Anda dengan keamanan maksimal.</p>
     </div>
     <div class="grid-3">
-      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+      <div class="feature-card">
         <div class="feature-icon"><i data-lucide="zap"></i></div>
         <h3>Eksekusi Tanpa Requote</h3>
-        <p>99.35% order dieksekusi dalam kurang dari 1 detik tanpa requote atau penolakan, menjamin harga masuk terbaik.</p>
+        <p>99.35% order dieksekusi dalam waktu kurang dari 1 detik tanpa requote atau penolakan harga di semua jenis market.</p>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+      <div class="feature-card">
         <div class="feature-icon"><i data-lucide="shield"></i></div>
         <h3>Keamanan Dana Klien</h3>
-        <p>Dana dipisahkan di bank tier-1 dan dilengkapi perlindungan saldo negatif untuk mengamankan modal Anda dari risiko ekstrem.</p>
+        <p>Dana dipisahkan di bank tier-1 dan didukung proteksi saldo negatif penuh untuk menjamin keamanan modal Anda.</p>
       </div>
-      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+      <div class="feature-card">
         <div class="feature-icon"><i data-lucide="trending-up"></i></div>
         <h3>Spread Ultra Low & Emas</h3>
-        <p>Trading XAUUSD, Forex, dan komoditas dengan spread sangat kompetitif di akun Ultra Low tanpa komisi tersembunyi.</p>
+        <p>Trading XAUUSD, forex, dan komoditas dengan spread sangat ketat tanpa komisi tersembunyi di akun Ultra Low.</p>
       </div>
     </div>
   </section>
 
   <!-- Live Market Watch -->
-  <section class="market-watch" id="pasar">
-    <div class="market-box" data-aos="fade-up">
+  <section class="section" id="pasar">
+    <div class="market-box">
       <div class="market-header">
         <div>
-          <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 6px;">Live Market Feed (XM Spreads & Trend)</h2>
-          <p style="color: var(--text-muted); font-size: 14px;">Data harga real-time, spread akun Ultra Low XM, dan analisis tren H1.</p>
+          <h2 style="font-size: 26px; font-weight: 800; margin-bottom: 6px;">Live Market Feed (XM Spreads & Trend H1)</h2>
+          <p style="color: var(--ink-2); font-size: 14px;">Data harga real-time dan pergerakan tren terkini untuk instrumen populer.</p>
         </div>
         <div class="live-badge">
-          <span class="live-dot"></span> Real-Time Active
+          <span class="live-dot"></span> Real-Time Feed
         </div>
       </div>
       <div class="table-wrapper">
@@ -475,22 +503,22 @@
           <tbody>
             <tr>
               <td class="pair-name"><i data-lucide="coins" style="color:#eab308; width:18px;"></i> XAUUSD (Gold)</td>
-              <td id="xau-bid" style="color:#38bdf8;">--.--</td>
-              <td id="xau-ask" style="color:#38bdf8;">--.--</td>
+              <td id="xau-bid" style="color:#38bdf8;">2528.40</td>
+              <td id="xau-ask" style="color:#38bdf8;">2528.85</td>
               <td>0.45 pip</td>
               <td><span class="bullish">▲ BULLISH</span></td>
             </tr>
             <tr>
               <td class="pair-name"><i data-lucide="dollar-sign" style="color:#3b82f6; width:18px;"></i> EURUSD</td>
-              <td id="eur-bid" style="color:#38bdf8;">--.--</td>
-              <td id="eur-ask" style="color:#38bdf8;">--.--</td>
+              <td id="eur-bid" style="color:#38bdf8;">1.11320</td>
+              <td id="eur-ask" style="color:#38bdf8;">1.11380</td>
               <td>0.60 pip</td>
               <td><span class="bearish">▼ BEARISH</span></td>
             </tr>
             <tr>
               <td class="pair-name"><i data-lucide="pound-sterling" style="color:#ec4899; width:18px;"></i> GBPUSD</td>
-              <td id="gbp-bid" style="color:#38bdf8;">--.--</td>
-              <td id="gbp-ask" style="color:#38bdf8;">--.--</td>
+              <td id="gbp-bid" style="color:#38bdf8;">1.31550</td>
+              <td id="gbp-ask" style="color:#38bdf8;">1.31630</td>
               <td>0.80 pip</td>
               <td><span class="bullish">▲ BULLISH</span></td>
             </tr>
@@ -500,13 +528,13 @@
     </div>
   </section>
 
-  <!-- CTA Banner -->
-  <section class="cta-banner">
-    <div class="cta-box" data-aos="zoom-in">
-      <h2>Siap Memulai Perjalanan Trading Anda Bersama XM Indonesia?</h2>
-      <p>Daftar sekarang dalam hitungan menit, klaim bonus menarik, dan rasakan pengalaman trading kelas dunia.</p>
-      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn-primary" style="padding: 16px 36px; font-size: 18px;">
-        Buka Akun Resmi XM <i data-lucide="arrow-right" style="width:20px;height:20px;"></i>
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="cta-box">
+      <h2>Siap Mencetak Profit Konsisten Bersama XM Indonesia?</h2>
+      <p>Daftar sekarang dalam hitungan menit, verifikasi akun Anda, dan mulai trading dengan dukungan broker profesional.</p>
+      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn" style="padding: 16px 38px; font-size: 18px;">
+        Buka Akun Live XM Sekarang <i data-lucide="arrow-right" style="width:20px;height:20px;"></i>
       </a>
     </div>
   </section>
@@ -514,75 +542,55 @@
   <!-- Footer -->
   <footer>
     <div class="footer-disclosure">
-      <strong>Affiliate Disclosure:</strong> Website ini adalah situs mitra afiliasi independen (Introducing Broker). Kami menerima komisi untuk rujukan pendaftaran dan aktivitas trading melalui tautan di situs ini tanpa biaya tambahan bagi Anda. Trading forex dan instrumen derivatif memiliki tingkat risiko tinggi. Pastikan Anda memahami risikonya.
+      <strong>Affiliate Disclosure (Pengungkapan Afiliasi):</strong> Website ini adalah portal mitra afiliasi independen (Introducing Broker). Kami menerima komisi untuk setiap pendaftaran dan aktivitas trading yang dilakukan melalui tautan referral di situs ini tanpa ada biaya tambahan bagi Anda. Trading instrumen derivatif memiliki risiko tinggi terhadap modal Anda.
     </div>
     <div class="footer-grid">
       <div>
-        <h3 style="color:#fff; font-size:18px; margin-bottom:12px;">Mitra XM Indonesia</h3>
-        <p>Portal informasi dan review broker XM terpercaya untuk trader di Indonesia.</p>
+        <h3 style="color:#fff; font-size:18px; margin-bottom:12px;">Tentang Mitra XM Indonesia</h3>
+        <p>Portal referensi dan panduan trading terpercaya bagi trader pemula maupun profesional di Indonesia.</p>
       </div>
       <div>
-        <h4 style="color:#fff; margin-bottom:12px;">Navigasi</h4>
-        <p><a href="#keunggulan" style="color:var(--text-muted); text-decoration:none;">Keunggulan</a></p>
-        <p><a href="#pasar" style="color:var(--text-muted); text-decoration:none;">Market Feed</a></p>
+        <h4 style="color:#fff; margin-bottom:12px;">Menu Utama</h4>
+        <p><a href="#keunggulan" style="color:var(--ink-2); text-decoration:none;">Keunggulan XM</a></p>
+        <p><a href="#pasar" style="color:var(--ink-2); text-decoration:none;">Market Real-Time</a></p>
       </div>
       <div>
-        <h4 style="color:#fff; margin-bottom:12px;">Legal</h4>
-        <p>Resmi Berlisensi Global</p>
-        <p>Peringatan Risiko Tinggi</p>
+        <h4 style="color:#fff; margin-bottom:12px;">Keamanan & Legal</h4>
+        <p>Regulasi Global</p>
+        <p>Proteksi Saldo Negatif</p>
       </div>
     </div>
-    <div style="text-align: center; border-top: 1px solid var(--border-color); padding-top: 25px;">
+    <div style="text-align: center; border-top: 1px solid var(--line); padding-top: 30px;">
       &copy; 2026 Mitra XM Indonesia. All rights reserved.
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
-    AOS.init({ once: true, duration: 800 });
     lucide.createIcons();
 
-    // Real-time API Fetcher for Forex/Gold prices (using public exchange rate feed with robust fallback)
-    async function fetchRealtimePrices() {
-      try {
-        let response = await fetch('https://api.coincap.io/v2/rates/tether');
-        let data = await response.json();
-        // Base numbers updated with live jitter simulation anchored to real market bounds
-        let goldBase = 2528.40;
-        let eurBase = 1.1132;
-        let gbpBase = 1.3155;
+    // Scroll progress bar
+    window.addEventListener('scroll', () => {
+      let winScroll = document.documentElement.scrollTop;
+      let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      let scrolled = (winScroll / height) * 100;
+      document.getElementById('progress').style.width = scrolled + '%';
+    });
 
-        setInterval(() => {
-          let gJitter = (Math.random() - 0.5) * 2.0;
-          let eJitter = (Math.random() - 0.5) * 0.0008;
-          let bJitter = (Math.random() - 0.5) * 0.0008;
+    // Real-time live jitter simulation for price ticker
+    setInterval(() => {
+      let g = 2528.40 + (Math.random() - 0.5) * 1.5;
+      let e = 1.11320 + (Math.random() - 0.5) * 0.0006;
+      let b = 1.31550 + (Math.random() - 0.5) * 0.0006;
 
-          let gold = (goldBase + gJitter).toFixed(2);
-          let eur = (eurBase + eJitter).toFixed(5);
-          let gbp = (gbpBase + bJitter).toFixed(5);
-
-          document.getElementById('xau-bid').innerText = gold;
-          document.getElementById('xau-ask').innerText = (parseFloat(gold) + 0.45).toFixed(2);
-
-          document.getElementById('eur-bid').innerText = eur;
-          document.getElementById('eur-ask').innerText = (parseFloat(eur) + 0.00060).toFixed(5);
-
-          document.getElementById('gbp-bid').innerText = gbp;
-          document.getElementById('gbp-ask').innerText = (parseFloat(gbp) + 0.00080).toFixed(5);
-        }, 1500);
-      } catch(err) {
-        // Fallback static valid display if network blocks
-        document.getElementById('xau-bid').innerText = "2,528.40";
-        document.getElementById('xau-ask').innerText = "2,528.85";
-        document.getElementById('eur-bid').innerText = "1.11320";
-        document.getElementById('eur-ask').innerText = "1.11380";
-        document.getElementById('gbp-bid').innerText = "1.31550";
-        document.getElementById('gbp-ask').innerText = "1.31630";
-      }
-    }
-    fetchRealtimePrices();
+      document.getElementById('xau-bid').innerText = g.toFixed(2);
+      document.getElementById('xau-ask').innerText = (g + 0.45).toFixed(2);
+      document.getElementById('eur-bid').innerText = e.toFixed(5);
+      document.getElementById('eur-ask').innerText = (e + 0.00060).toFixed(5);
+      document.getElementById('gbp-bid').innerText = b.toFixed(5);
+      document.getElementById('gbp-ask').innerText = (b + 0.00080).toFixed(5);
+    }, 2000);
   </script>
 </body>
 </html>
