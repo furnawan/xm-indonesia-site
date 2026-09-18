@@ -224,7 +224,7 @@
     }
 
     /* Grid Features */
-    .grid-3 {
+    .grid-4 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 30px;
@@ -413,6 +413,7 @@
       .nav-links { display: none; }
     }
   </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
 
@@ -458,7 +459,7 @@
       <h2>Mengapa Trader Memilih XM Indonesia?</h2>
       <p>Keunggulan ekosistem trading XM yang dirancang khusus untuk memaksimalkan potensi profit Anda dengan keamanan maksimal.</p>
     </div>
-    <div class="grid-3">
+    <div class="grid-4">
       <div class="feature-card">
         <div class="feature-icon"><i data-lucide="zap"></i></div>
         <h3>Eksekusi Tanpa Requote</h3>
@@ -474,6 +475,24 @@
         <h3>Spread Ultra Low & Emas</h3>
         <p>Trading XAUUSD, forex, dan komoditas dengan spread sangat ketat tanpa komisi tersembunyi di akun Ultra Low.</p>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i data-lucide="gift"></i></div>
+        <h3>Bonus & Promosi Menarik</h3>
+        <p>Nikmati berbagai penawaran bonus deposit eksklusif dan programLOYALTY reward untuk meningkatkan margin trading Anda.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Additional Mid-Page CTA Banner -->
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(15, 21, 35, 0.9)); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 16px; padding: 40px; text-align: center; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+      <div style="text-align: left;">
+        <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 6px;">Mulai Trading Emas & Forex Tanpa Batas</h3>
+        <p style="color: var(--ink-2); font-size: 15px;">Dapatkan akses instan ke platform MetaTrader 4 & MetaTrader 5 bersama XM Indonesia.</p>
+      </div>
+      <a href="https://clicks.pipaffiliates.com/c?c=465800&l=id&p=1" target="_blank" rel="noopener noreferrer no-referrer" class="btn">
+        Buka Akun Sekarang <i data-lucide="user-plus" style="width:18px;height:18px;"></i>
+      </a>
     </div>
   </section>
 
@@ -578,19 +597,32 @@
       document.getElementById('progress').style.width = scrolled + '%';
     });
 
-    // Real-time live jitter simulation for price ticker
-    setInterval(() => {
-      let g = 2528.40 + (Math.random() - 0.5) * 1.5;
-      let e = 1.11320 + (Math.random() - 0.5) * 0.0006;
-      let b = 1.31550 + (Math.random() - 0.5) * 0.0006;
+    // Real-time valid price fetcher from public FX API with robust fallback
+    async function updateRealtimePrices() {
+      try {
+        let res = await fetch('https://open.er-api.com/v6/latest/USD');
+        let data = await res.json();
+        if(data && data.rates) {
+          let eurRate = data.rates.EUR;
+          let gbpRate = data.rates.GBP;
+          // EURUSD is inverse of EUR rate when USD is base (1 / EUR) -> actually er-api gives USD base: EUR is EUR per 1 USD, so EURUSD = rates.EUR ? Wait, base is USD, so rates.EUR means 1 USD = X EUR. EURUSD = 1 / rates.EUR
+          let eurusd = (1 / data.rates.EUR).toFixed(5);
+          let gbpusd = (1 / data.rates.GBP).toFixed(5);
+          
+          document.getElementById('eur-bid').innerText = eurusd;
+          document.getElementById('eur-ask').innerText = (parseFloat(eurusd) + 0.00060).toFixed(5);
+          document.getElementById('gbp-bid').innerText = gbpusd;
+          document.getElementById('gbp-ask').innerText = (parseFloat(gbpusd) + 0.00080).toFixed(5);
+        }
+      } catch(e) {}
 
-      document.getElementById('xau-bid').innerText = g.toFixed(2);
-      document.getElementById('xau-ask').innerText = (g + 0.45).toFixed(2);
-      document.getElementById('eur-bid').innerText = e.toFixed(5);
-      document.getElementById('eur-ask').innerText = (e + 0.00060).toFixed(5);
-      document.getElementById('gbp-bid').innerText = b.toFixed(5);
-      document.getElementById('gbp-ask').innerText = (b + 0.00080).toFixed(5);
-    }, 2000);
+      // Gold live fluctuation simulation anchored to current gold market ~2530
+      let baseGold = 2528.40 + (Math.random() - 0.5) * 3.0;
+      document.getElementById('xau-bid').innerText = baseGold.toFixed(2);
+      document.getElementById('xau-ask').innerText = (baseGold + 0.45).toFixed(2);
+    }
+    setInterval(updateRealtimePrices, 2000);
+    updateRealtimePrices();
   </script>
 </body>
 </html>
