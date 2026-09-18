@@ -417,7 +417,19 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
     }
-    </style>
+    
+    .features-grid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 30px !important;
+    }
+    @media (max-width: 968px) {
+      .features-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+</style>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 </head>
 <body>
@@ -464,7 +476,7 @@
       <h2>Mengapa Trader Memilih XM Indonesia?</h2>
       <p>Keunggulan ekosistem trading XM yang dirancang khusus untuk memaksimalkan potensi profit Anda dengan keamanan maksimal.</p>
     </div>
-    <div class="grid-3">
+    <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon"><i data-lucide="zap"></i></div>
         <h3>Eksekusi Tanpa Requote</h3>
