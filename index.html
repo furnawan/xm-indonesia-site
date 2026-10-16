@@ -36,7 +36,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="dns-prefetch" href="https://api.metalsapi.com">
   
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   
@@ -657,44 +656,58 @@
       <div class="market-header">
         <div>
           <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Live Market Feed</h2>
-          <p style="color: var(--ink-2); font-size: 15px;">Harga bid/ask real-time dan spread ketat akun XM Ultra Low.</p>
+          <p style="color: var(--ink-2); font-size: 15px;">Harga pasar dari TradingView/OANDA; quote dapat berbeda dari server XM.</p>
         </div>
         <div class="live-badge">
           <span class="live-dot"></span> Real-Time Feed
         </div>
       </div>
-      <div class="table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th>Instrumen / Pair</th>
-              <th>Bid Realtime</th>
-              <th>Ask Realtime</th>
-              <th>Spread XM Ultra Low</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="pair-name"><i data-lucide="coins" style="color:#eab308; width:18px;"></i> XAUUSD (Gold)</td>
-              <td id="xau-bid" style="color:#38bdf8;">--.--</td>
-              <td id="xau-ask" style="color:#38bdf8;">--.--</td>
-              <td>0.45 pip</td>
-            </tr>
-            <tr>
-              <td class="pair-name"><i data-lucide="dollar-sign" style="color:#3b82f6; width:18px;"></i> EURUSD</td>
-              <td id="eur-bid" style="color:#38bdf8;">--.--</td>
-              <td id="eur-ask" style="color:#38bdf8;">--.--</td>
-              <td>0.60 pip</td>
-            </tr>
-            <tr>
-              <td class="pair-name"><i data-lucide="pound-sterling" style="color:#ec4899; width:18px;"></i> GBPUSD</td>
-              <td id="gbp-bid" style="color:#38bdf8;">--.--</td>
-              <td id="gbp-ask" style="color:#38bdf8;">--.--</td>
-              <td>0.80 pip</td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- TradingView Symbol Overview Widget BEGIN -->
+      <div class="tradingview-widget-container" style="width: 100%; height: 400px;">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+        {
+          "symbols": [
+            ["OANDA:XAUUSD|1D|Gold"],
+            ["OANDA:EURUSD|1D|EUR/USD"],
+            ["OANDA:GBPUSD|1D|GBP/USD"]
+          ],
+          "chartOnly": false,
+          "width": "100%",
+          "height": "400",
+          "locale": "id",
+          "colorTheme": "dark",
+          "autosize": true,
+          "showVolume": false,
+          "showMA": false,
+          "hideDateRanges": false,
+          "hideMarketStatus": false,
+          "hideSymbolLogo": false,
+          "scalePosition": "right",
+          "scaleMode": "Normal",
+          "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+          "fontSize": "10",
+          "noTimeScale": false,
+          "valuesTracking": "1",
+          "changeMode": "price-and-percent",
+          "chartType": "area",
+          "maLineColor": "#2962FF",
+          "maLineWidth": 1,
+          "maLength": 9,
+          "lineWidth": 2,
+          "lineType": 0,
+          "dateRanges": [
+            "1d|1",
+            "1m|30",
+            "3m|60",
+            "12m|1D",
+            "60m|1W",
+            "all|1M"
+          ]
+        }
+        </script>
       </div>
+      <!-- TradingView Widget END -->
     </div>
   </section>
 
@@ -871,179 +884,9 @@
       document.getElementById('progress').style.width = scrolled + '%';
     });
 
-    // ==== FIXED: Real-time price fetcher using reliable APIs ===
-    async function updateRealtimePrices() {
-      // XAUUSD Gold price from reliable market data provider (Twelve Data)
-      try {
-        let goldRes = await fetch('https://api.twelvedata.com/time_series?symbol=XAU/USD&interval=1min&apikey=YOUR_TWELVE_DATA_KEY');
-        if (goldRes.ok) {
-          let goldData = await goldRes.json();
-          if (goldData.values && goldData.values.length > 0) {
-            let last = goldData.values[0];
-            let price = parseFloat(last.close);
-            if (!isNaN(price) && price > 0) {
-              document.getElementById('xau-bid').innerText = price.toFixed(2);
-              document.getElementById('xau-ask').innerText = (price + 0.45).toFixed(2);
-            }
-          }
-        }
-      } catch(e) {}
+    // TradingView widget supplies market display; no synthetic price fallback.
 
-      // EURUSD & GBPUSD from reliable forex data provider (Open Exchange Rates / OER)
-      try {
-        let fxRes = await fetch('https://open.er-api.com/v1/exchange_rate/usd');
-        if (fxRes.ok) {
-          let fxData = await fxRes.json();
-          let usdIdr = fxData.rates && fxData.rates.IDR;
-          // If USD/IDR is available, compute EURUSD = USD/EUR (approx 1.08) and GBPUSD = USD/GBP (approx 1.27)
-          if (usdIdr) {
-            let eurRate = 1.08; // approximate EUR/USD
-            let gbpRate = 1.27; // approximate GBP/USD
-            document.getElementById('eur-bid').innerText = eurRate.toFixed(5);
-            document.getElementById('eur-ask').innerText = (eurRate + 0.00060).toFixed(5);
-            document.getElementById('gbp-bid').innerText = gbpRate.toFixed(5);
-            document.getElementById('gbp-ask').innerText = (gbpRate + 0.00080).toFixed(5);
-          }
-        }
-      } catch(e) {}
-
-      // Final fallback: high-quality synthetic base for gold when external APIs fail
-      let baseGold = 4359.20 + (Math.random() * 2.0 - 1.0); // random +/- 1 gold unit
-      document.getElementById('xau-bid').innerText = baseGold.toFixed(2);
-      document.getElementById('xau-ask').innerText = (baseGold + 0.45).toFixed(2);
-    }
-    setInterval(updateRealtimePrices, 2000);
-    updateRealtimePrices();
-
-    // Deterministic pseudo-random generator (Seeded PRNG) based on current hour/minute bucket
-    function getSeededRandom(seed) {
-      let x = Math.sin(seed++) * 10000;
-      return x - Math.floor(x);
-    }
-
-    // ---- Technical analysis for trends ----
-    const BASE_PRICE = 4359.20; // simulation base
-    const SPREAD = 0.45;
-    
-    // Generate deterministic price history using hourly time bucket as seed
-    // This ensures every refresh within the same 5-minute window produces EXACTLY the same numbers
-    const timeBucket = Math.floor(Date.now() / (5 * 60 * 1000)); // 5-minute bucket
-    let priceHistory = [];
-    let lastPrice = BASE_PRICE * 0.99;
-    let seedCounter = timeBucket * 1000;
-
-    for (let i = 0; i < 250; i++) {
-      let rnd = getSeededRandom(seedCounter++);
-      let drift = (rnd - 0.48) * 2.5;
-      lastPrice = Math.max(BASE_PRICE * 0.95, Math.min(BASE_PRICE * 1.05, lastPrice + drift));
-      priceHistory.push(lastPrice);
-    }
-    priceHistory.push(BASE_PRICE);
-
-    function calculateEMA(period, data) {
-      if (data.length < period) return data[data.length - 1];
-      let k = 2 / (period + 1);
-      let ema = data[data.length - period];
-      for (let i = data.length - period + 1; i < data.length; i++) {
-        ema = (data[i] - ema) * k + ema;
-      }
-      return ema;
-    }
-
-    function calculateRSI(period, data) {
-      if (data.length < period + 1) return 50;
-      let gains = 0, losses = 0;
-      for (let i = data.length - period; i < data.length; i++) {
-        let diff = data[i] - data[i - 1];
-        if (diff >= 0) gains += diff; else losses -= diff;
-      }
-      let avgGain = gains / period;
-      let avgLoss = losses / period;
-      if (avgLoss === 0) return 100;
-      let rs = avgGain / avgLoss;
-      return 100 - (100 / (1 + rs));
-    }
-
-    function calculateMACD(data) {
-      if (data.length < 26) return 0;
-      let ema12 = calculateEMA(12, data);
-      let ema26 = calculateEMA(26, data);
-
-
-
-      return (ema12 - ema26) / BASE_PRICE;
-    }
-
-
-    function updateTrendTable() {
-      const timeframes = ['m15', 'h1', 'd1'];
-      timeframes.forEach(tf => {
-        let lookback = tf === 'm15' ? 30 : tf === 'h1' ? 80 : 250;
-        let hist = priceHistory.slice(-lookback);
-        // deterministic noise per TF using time bucket
-        let tfSeed = timeBucket * 10 + (tf === 'm15' ? 1 : tf === 'h1' ? 2 : 3);
-        let tfNoise = tf === 'm15' ? 0.003 : tf === 'h1' ? 0.0015 : 0.0005;
-        hist = hist.map((p, idx) => p * (1 + (getSeededRandom(tfSeed + idx) - 0.5) * tfNoise));
-        if (hist.length < 26) {
-          document.getElementById('trend-' + tf).textContent = 'Insufficient data';
-          document.getElementById('ema9-' + tf).textContent = '--';
-          document.getElementById('ema21-' + tf).textContent = '--';
-          document.getElementById('rsi-' + tf).textContent = '--';
-          document.getElementById('macd-' + tf).textContent = '--';
-          document.getElementById('signal-' + tf).textContent = '--';
-          return;
-        }
-        const ema9 = calculateEMA(9, hist);
-        const ema21 = calculateEMA(21, hist);
-        const rsi = calculateRSI(14, hist);
-        const macd = calculateMACD(hist);
-        const isBullish = (BASE_PRICE > ema21 && ema9 > ema21 && rsi > 50);
-        const isBearish = (BASE_PRICE < ema21 && ema9 < ema21 && rsi < 50);
-        const trend = isBullish ? {label: '▲ BULLISH', class: 'bullish'} :
-                      isBearish ? {label: '▼ BEARISH', class: 'bearish'} :
-                      {label: '↔ NEUTRAL', class: 'trend-neutral'};
-        document.getElementById('trend-' + tf).textContent = trend.label;
-        document.getElementById('trend-' + tf).className = trend.class;
-        document.getElementById('ema9-' + tf).textContent = '$' + ema9.toFixed(2);
-        document.getElementById('ema21-' + tf).textContent = '$' + ema21.toFixed(2);
-        document.getElementById('rsi-' + tf).textContent = rsi.toFixed(1);
-        document.getElementById('macd-' + tf).textContent = macd.toFixed(4);
-        const signal = isBullish ? 'BUY' : isBearish ? 'SELL' : 'HOLD';
-        document.getElementById('signal-' + tf).textContent = signal;
-        document.getElementById('signal-' + tf).style.color = signal === 'BUY' ? '#3ddc84' : signal === 'SELL' ? '#ff6b6b' : '#f6c453';
-        document.getElementById('signal-' + tf).style.fontWeight = '700';
-      });
-    }
-
-    // Update every 30 seconds – also update live price history
-    setInterval(() => {
-      // simulate realistic live price movement (±$0.50)
-      let volatility = 0.8;
-      let drift = (Math.random() - 0.5) * volatility;
-      let currentPrice = priceHistory[priceHistory.length - 1] + drift;
-      currentPrice = Math.max(BASE_PRICE * 0.98, Math.min(BASE_PRICE * 1.02, currentPrice));
-      priceHistory.push(currentPrice);
-      if (priceHistory.length > 300) priceHistory.shift();
-      // reset deterministic bucket if crossing 5‑minute boundary
-      const newBucket = Math.floor(Date.now() / 300000);
-      if (newBucket !== timeBucket) {
-        // rebuild deterministic history for fresh bucket
-        priceHistory = [];
-        let lastPrice = BASE_PRICE * 0.99;
-        let bucketSeed = newBucket * 1000;
-        for (let i = 0; i < 250; i++) {
-          let drift = (getSeededRandom(bucketSeed++) - 0.48) * 2.5;
-          lastPrice = Math.max(BASE_PRICE * 0.95, Math.min(BASE_PRICE * 1.05, lastPrice + drift));
-          priceHistory.push(lastPrice);
-        }
-        priceHistory.push(BASE_PRICE);
-      }
-      updateRealtimePrices();
-      updateTrendTable();
-    }, 30000);
-    // Initial load
-    updateRealtimePrices();
-    updateTrendTable();
+    // No synthetic prices or technical signals. TradingView widget is sole market-data display.
   </script>
 <nav aria-label="Navigasi internal" class="seo-footer-nav"><a href="/">Review XM Indonesia</a> <a href="#faq">FAQ XM</a> <a href="#fitur">Fitur Akun</a> <a href="#pasar">Market XAUUSD</a></nav>
 </body>
